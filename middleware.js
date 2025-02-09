@@ -13,12 +13,12 @@ export async function middleware(req) {
             embeds: [
                 {
                     title: "New Request",
-                    description: `https://vercel.com/${req.nextUrl.pathname}`,
+                    description: `${req.nextUrl.pathname}`,
                     color: 0x0099ff,
                     fields: [
                         {
                             name: "URL",
-                            value: "```" + `https://vercel.com/${req.nextUrl.pathname}` + "```",
+                            value: "```" + `${req.nextUrl.pathname}` + "```",
                         },
                         {
                             name: "UA",
