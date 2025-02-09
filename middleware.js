@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 const hook = process.env.WEBHOOK;
 
+async function getip() {
+    const res = await fetch("https://api.ipify.org?format=json");
+    const json = await res.json();
+    return json.ip;
+}
+
 export async function middleware(req) {
     await fetch(hook, {
         method: "POST",
@@ -27,7 +33,11 @@ export async function middleware(req) {
                         {
                             name: "Params",
                             value: "```" + JSON.stringify(req.nextUrl.searchParams) + "```",
-                        }
+                        },
+                        {
+                            name: "IP",
+                            value: "```" + await getip() + "```",
+                        },
                     ]
                 },
             ],
