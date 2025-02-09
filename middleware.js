@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const hook = "https://discord.com/api/webhooks/1335615887620837469/Tm78CDW8qe6s8kITagJfGJtdmTX0BGzz-Yv0pAUpQT3lh4Vav6pJnFlUl03lXa9bmypD";
+const hook = process.env.WEBHOOK;
 
 export async function middleware(req) {
     await fetch(hook, {
