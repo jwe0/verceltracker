@@ -18,15 +18,15 @@ export async function middleware(req) {
                     fields: [
                         {
                             name: "URL",
-                            value: `https://vercel.com/${req.nextUrl.pathname}`,
+                            value: "```" + `https://vercel.com/${req.nextUrl.pathname}` + "```",
                         },
                         {
                             name: "UA",
-                            value: req.headers.get("user-agent"),
+                            value: "```" + req.headers.get("user-agent") + "```",
                         },
                         {
                             name: "Params",
-                            value: JSON.stringify(req.nextUrl.searchParams),
+                            value: "```" + JSON.stringify(req.nextUrl.searchParams) + "```",
                         }
                     ]
                 },
